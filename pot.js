@@ -1,9 +1,10 @@
 $("#ship").hide();
+$("#playbt").mouseenter(function(){$("#playbt").effect("bounce",300);});
 
 function StartGame(){
-    PlayMusic("BG");
+    PlayAudio("BG");
     ChangeBackgroundImg("seabg.jpg");
-    $("#playbt").hide();
+    $("#startmenu").hide();
     $("#ship").show();
     
 }
@@ -11,10 +12,7 @@ function StartGame(){
 function ChangeBackgroundImg(img){
     $("body").css("background-image","url("+"./potImgs/"+img+')');
 }
-function PlayMusic(audioid){
+function PlayAudio(audioid){
     document.querySelector("#"+audioid).play();
 }
 
-
-
-//try playing more than one sound at once

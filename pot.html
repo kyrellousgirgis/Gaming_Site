@@ -2,6 +2,7 @@
     <html>
 
     <head>
+        <title>Pirates of the Typean</title>
         <link rel="stylesheet" href="./pot.css" type="text/css">
         <link rel="stylesheet" href="JQueryUI/jquery-ui.css" type="text/css">
     </head>
@@ -10,11 +11,33 @@
         <script src="JQuery/jquery-3.5.1.js"></script>
         <script src="JQueryUI/jquery-ui.min.js"></script>
         
-        <button onclick="StartGame()" id="playbt">Play</button>
-        <img src="./potImgs/ship.png" id="ship">
         <audio src="./potSound/Pirate.mp3" id="BG" type="audio/mpeg">
             Your browser does not support the <code>audio</code> element.
         </audio>
+        
+        
+        <audio src="./potSound/Crash.mp3" id="Crash" type="audio/mpeg">
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+        
+        <img src="./potImgs/ship.png" id="ship">
+        
+        <div id="startmenu">
+            <div id="htp">
+                <label style="font-size: 32;font-weight: bolder;">How to play?</label>
+                <p>
+                    Captain Mac Sparrow wants you to help him outrun the Navy!<br>
+                    The Navy are shooting Letter Cannon Bombs heavily from their ships.<br>
+                    You can stop the bombs by pressing the button having the same <br>
+                    letter as that written on the Bomb.<br>
+                    But be careful if they come very close to the ship they will damage it,<br>
+                    And we'll lose a crewmate. <br><br>
+                    SOS!
+                </p>
+            </div>
+            <button onclick="StartGame()" id="playbt">Play</button>
+        </div>
+        
         <script src="./pot.js"></script>
     </body>
 

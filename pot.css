@@ -12,3 +12,42 @@ body{
     top: auto;
     bottom: 50px;
 }
+
+button{
+    font-family:fantasy;
+    font-size: 36;
+    text-align: center;
+    color: black;
+    background-color: gold;
+    border: 5px;
+    border-style: ridge;
+    border-color: black;
+    border-radius: 20px;
+    width: 150px;
+    font-weight: bolder;
+    margin-right: 20px;
+    margin-top: 20px;
+
+}
+
+#startmenu{
+    margin-left: 75%;
+    text-align: center;
+    padding: 5px;
+}
+
+#htp{
+    padding: 10px;
+    font-family:cursive;
+    font-size: 18;
+    text-align: center;
+    color: black;
+    background-color: gold;
+    border: 5px;
+    border-style: ridge;
+    border-color: black;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 20px;
+    width: 300px;
+    font-weight: bold;
+}
