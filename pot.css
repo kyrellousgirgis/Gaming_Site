@@ -1,0 +1,14 @@
+body{
+    background-image: url("./potImgs/potBG2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#ship{
+    width:600px;
+    height: 600px;
+    position: fixed;
+    top: auto;
+    bottom: 50px;
+}
