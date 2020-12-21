@@ -32,9 +32,24 @@ function StartGame() {
     highScore = 0; //get highscore using cookies
     bombId = 0;
     speed = 2000;
+    playing=true;
     Game();
 
 }
+
+document.addEventListener("keydown", function (event) {
+    if(!playing) event.preventDefault();
+    var key = String.fromCharCode(event.keyCode);
+    var trimmed = deleteChar(onScreenLetters,key);
+    if(trimmed=="-1")event.preventDefault();
+    else {
+        onScreenLetters = trimmed;
+        score++;
+    }
+    
+    
+  });
+
 
 function ChangeBackgroundImg(img) {
     $("body").css("background-image", "url(" + "./potImgs/" + img + ')');
@@ -57,13 +72,13 @@ var stepTimer;
 var speed;
 var step;
 var onScreenLetters = "";
-const alphabet = "abcdefghijklmnopqrstuvwxyz";
+const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var bombId; //remove all references
-var moverTimer
+var moverTimer;
+var playing;
 
 
 function Game() {
-
     bombTimer = setInterval(function () {
         var letter = alphabet[Math.floor(Math.random() * alphabet.length)];
         onScreenLetters += letter;
@@ -87,8 +102,8 @@ function Game() {
                 for (var i = 0; i < x.length; i++) {
                     x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - step) + "px";
                     if((parseInt(getComputedStyle(x[i]).marginLeft)<=-100)){
-                          
-                        Damage(j,i);
+                    var k = x[i].innerHTML;
+                        Damage(j,i,k);
                         
                     }
                 }
@@ -99,17 +114,33 @@ function Game() {
 
 }
 
+function deleteChar(str,key){
+    var regex = new RegExp(key,"g");
+    var del = onScreenLetters.search(regex);
+    var s = "";
+    if(del==-1) return "-1";
+    else{
+        for(var i=0;i<str.length;i++){
+            if(i!=del) s+=str.charAt(i);
+        }
+    }
+    return s;
+}
+
 
 var pirateTimer; //new game key
 
-function Damage(cls,ind){
+function Damage(cls,ind,key){
+    var del=deleteChar(onScreenLetters,key);
+    if(del!="-1") onScreenLetters = del;
+        
     var sel = ".bomb"+cls;
     $("#ship").effect("shake",400);
     PlayAudio("Crash");
     lives--;
     if(lives==0) {
         setTimeout(function(){
-            
+            playing=false;
             clearInterval(bombTimer);
             clearInterval(levelTimer);
             clearInterval(moverTimer);
@@ -125,6 +156,7 @@ function Damage(cls,ind){
             },5000)
         },1000);
         //location.reload();
+        alert(onScreenLetters+" "+score);
         return;
     }
     if(lives>0)
