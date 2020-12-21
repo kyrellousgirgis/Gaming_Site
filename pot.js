@@ -41,7 +41,8 @@ document.addEventListener("keydown", function (event) {
     if(!playing) event.preventDefault();
     var key = String.fromCharCode(event.keyCode);
     var trimmed = deleteChar(onScreenLetters,key);
-    if(trimmed=="-1"){score-=2; if(score<0)score=0; changeScore();}
+   
+    if(trimmed=="-1"){score=score-2; if(score<0){score=0;} changeScore(); console.log("hello");}
     else {
         onScreenLetters = trimmed;
         score++;
@@ -145,17 +146,19 @@ function removeBomb(letter){
 
 function changeScore(){
     var dig=0;
-    var s = score;
+    var s = parseInt(score);
+    if(score==0)
+    {$("#score").html("Score:000000");return;}
     while(s>0)
     {
         s=parseInt(s)/10;
         dig++;
     }
-    var str = "Score: ";
-    for(var i=0;i<=(6-dig);i++)
+    var str = "Score:";
+    for(var i=0;i<=(6-dig);i++){
         str+="0";
-    console.log(dig)
-    console.log(str);
+    }
+
     str+= score.toString();
     $("#score").html(str);
 }
