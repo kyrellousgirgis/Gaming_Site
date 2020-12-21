@@ -41,10 +41,10 @@ document.addEventListener("keydown", function (event) {
     if(!playing) event.preventDefault();
     var key = String.fromCharCode(event.keyCode);
     var trimmed = deleteChar(onScreenLetters,key);
-    if(trimmed=="-1")event.preventDefault();
+    if(trimmed=="-1"){score-=2; if(score<0)score=0;}
     else {
         onScreenLetters = trimmed;
-        score++;
+        changeScore();
         removeBomb(key);
     }
     
@@ -88,8 +88,8 @@ function Game() {
         PlayAudio("Cannon");
     }, speed);
     levelTimer = setInterval(function () {
-        if (speed >= 200)
-            speed -= 100;
+        if (speed >= 400)
+            speed -= 200;
     }, 15000);
     stepTimer = setInterval(function(){
         step+=1;
@@ -135,10 +135,29 @@ function removeBomb(letter){
         for(var i=0;i<bombs.length && !flag;i++){
             if(bombs[i].innerHTML==letter){
                 bombs[i].remove();
+                PlayAudio("explode");
                 flag=true;
             }
         }
     }
+}
+
+function changeScore(){
+    score++;
+    var dig=0;
+    var s = score;
+    while(s>0)
+    {
+        s=parseInt(s)/10;
+        dig++;
+    }
+    var str = "Score: ";
+    for(var i=0;i<=(6-dig);i++)
+        str+="0";
+    console.log(dig)
+    console.log(str);
+    str+= score.toString();
+    $("#score").html(str);
 }
 
 var pirateTimer; //new game key
