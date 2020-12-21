@@ -45,6 +45,7 @@ document.addEventListener("keydown", function (event) {
     else {
         onScreenLetters = trimmed;
         score++;
+        removeBomb(key);
     }
     
     
@@ -127,6 +128,18 @@ function deleteChar(str,key){
     return s;
 }
 
+function removeBomb(letter){
+    var flag =false;
+    for(var j=1;j<=3 && !flag;j++){
+        var bombs = document.querySelectorAll(".bomb"+j);
+        for(var i=0;i<bombs.length && !flag;i++){
+            if(bombs[i].innerHTML==letter){
+                bombs[i].remove();
+                flag=true;
+            }
+        }
+    }
+}
 
 var pirateTimer; //new game key
 
