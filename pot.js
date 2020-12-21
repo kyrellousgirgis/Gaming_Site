@@ -34,6 +34,12 @@ function PlayAudio(audioid) {
     document.querySelector("#" + audioid).play();
 }
 
+function Mute(){
+    for(var i=0;i<document.querySelectorAll("audio").length;i++){
+        document.querySelectorAll("audio")[i].pause();
+    }
+}
+
 var bombTimer;
 var levelTimer;
 var speed;
@@ -83,23 +89,25 @@ function Damage(cls,ind){
     $("#ship").effect("shake",400);
     PlayAudio("Crash");
     lives--;
-    $("#lives").children().eq(0).children().eq(lives).hide();
     if(lives==0) {
         setTimeout(function(){
-            $(sel).eq(ind).remove();
+            
             clearInterval(bombTimer);
             clearInterval(levelTimer);
             clearInterval(moverTimer);
-            ChangeBackgroundImg("GameOver.jpeg");
+            ChangeBackgroundImg("GameOver2.jpeg");
             $("body").children().hide();
+            Mute();
+            PlayAudio("GameOver");
             
         },1000);
         //location.reload();
         return;
     }
+    if(lives>0)
+    $("#lives").children().eq(0).children().eq(lives).hide();
     $(sel).eq(ind).remove();
     
 }
 //fn lose life
 //add listener on key press for body, check if character is in onScreenLetters
-var x = document.querySelectorAll(".bomb1");
