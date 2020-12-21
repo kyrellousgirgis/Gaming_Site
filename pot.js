@@ -64,12 +64,26 @@ function Game() {
             if (x.length != 0) {
                 for (var i = 0; i < x.length; i++) {
                     x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - 5) + "px";
+                    if((parseInt(getComputedStyle(x[i]).marginLeft)<=-100)){
+                          
+                        Damage(j,i);
+                        
+                    }
                 }
             }
         }
 
     }, 15);
 
+}
+
+function Damage(cls,ind){
+    var sel = ".bomb"+cls;
+    $("#ship").effect("shake",400);
+    PlayAudio("Crash");
+    lives--;
+    $(sel).eq(ind).remove();
+    
 }
 //fn lose life
 //add listener on key press for body, check if character is in onScreenLetters
