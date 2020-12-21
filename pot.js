@@ -48,8 +48,8 @@ function Game() {
         var letter = alphabet[Math.floor(Math.random() * alphabet.length)];
         onScreenLetters += letter;
         var cls = Math.floor(Math.random() * 3) + 1;
-        $("body").append("<label class='bomb" + cls + "' id='" + bombId + "'>" + letter + "</label>");
-        bombId++;
+        $("body").append("<label class='bomb" + cls + "'>" + letter + "</label>");
+        PlayAudio("Cannon");
     }, speed);
     levelTimer = setInterval(function () {
         if (speed >= 200)
@@ -63,12 +63,12 @@ function Game() {
             var x = document.querySelectorAll(".bomb" + j);
             if (x.length != 0) {
                 for (var i = 0; i < x.length; i++) {
-                    x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - 10) + "px";
+                    x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - 5) + "px";
                 }
             }
         }
 
-    }, 50);
+    }, 15);
 
 }
 //fn lose life

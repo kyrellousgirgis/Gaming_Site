@@ -85,7 +85,7 @@ button{
 }
 
 .bomb1{
-     margin-left: 900px;
+     margin-left: 890px;
     margin-top: 125px;
     position: absolute;
     text-align: center;
@@ -101,7 +101,7 @@ button{
 }
 
 .bomb2{
-    margin-left: 900px;
+    margin-left: 890px;
     margin-top: 250px;
     position: absolute;
     text-align: center;
@@ -116,7 +116,7 @@ button{
     height: 30px;
 }
 .bomb3{
-     margin-left: 900px;
+    margin-left: 890px;
     margin-top: 400px;
     position: absolute;
     text-align: center;
