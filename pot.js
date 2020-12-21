@@ -30,6 +30,7 @@ function ChangeBackgroundImg(img) {
 }
 
 function PlayAudio(audioid) {
+    document.querySelector("#" + audioid).currentTime =0;
     document.querySelector("#" + audioid).play();
 }
 
@@ -84,7 +85,15 @@ function Damage(cls,ind){
     lives--;
     $("#lives").children().eq(0).children().eq(lives).hide();
     if(lives==0) {
-        alert("GameOver");
+        setTimeout(function(){
+            $(sel).eq(ind).remove();
+            clearInterval(bombTimer);
+            clearInterval(levelTimer);
+            clearInterval(moverTimer);
+            ChangeBackgroundImg("GameOver.jpeg");
+            $("body").children().hide();
+            
+        },1000);
         //location.reload();
         return;
     }
