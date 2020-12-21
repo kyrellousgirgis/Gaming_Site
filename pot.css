@@ -1,0 +1,157 @@
+body{
+    background-image: url("./potImgs/potBG2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#ship{
+    width:600px;
+    height: 600px;
+
+    bottom: 50px;
+}
+
+#playbt{
+    font-family:fantasy;
+    font-size: 36;
+    text-align: center;
+    color: black;
+    background-color: gold;
+    border: 5px;
+    border-style: ridge;
+    border-color: black;
+    border-radius: 20px;
+    width: 150px;
+    font-weight: bolder;
+    margin-right: 20px;
+    margin-top: 20px;
+
+}
+
+#startmenu{
+    margin-left: 75%;
+    text-align: center;
+    padding: 5px;
+}
+
+#htp{
+    padding: 10px;
+    font-family:cursive;
+    font-size: 18;
+    text-align: center;
+    color: black;
+    background-color: gold;
+    border: 5px;
+    border-style: ridge;
+    border-color: black;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 20px;
+    width: 300px;
+    font-weight: bold;
+}
+
+.logo{
+    margin-top:585px;
+    position: absolute;
+    font-family:fantasy;
+    text-align: center;
+    color:whitesmoke;
+    width: 190px;
+}
+.logotext{
+    font-weight: 100;
+    padding: 4px;
+    position: absolute;
+    top: 100px;
+    border-style: inset;
+    border: 2px;
+    background-color: black;
+
+}
+.flag{
+    width: 150px;
+    height: 120px;
+}
+
+#score{
+    position: fixed;
+    margin-right: 0px;
+    left:1300px;
+    top:55px;
+    color: whitesmoke;
+    font-family:fantasy;
+    font-size: 30;
+}
+
+.bomb1{
+    font-weight: 300;
+    font-family: serif;
+    margin-left: 890px;
+    margin-top: 125px;
+    position: absolute;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    border: 2px;
+    font-size: 24;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.bomb2{
+    font-weight: 300;
+    font-family: serif;
+    margin-left: 890px;
+    margin-top: 250px;
+    position: absolute;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    border: 2px;
+    font-size: 24;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+.bomb3{
+    font-weight: 300;
+    font-family: serif;
+    margin-left: 890px;
+    margin-top: 400px;
+    position: absolute;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    border: 2px;
+    font-size: 24;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+/*Gold and Black*/
+#GO{
+    padding: 3px;
+    font-size: 24;
+    text-align: center;
+    background-color: black; 
+    color: whitesmoke; 
+    font-family: fantasy;
+    border: 10px;
+    border-radius: 5px;
+    width: 400px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    
+    
+}
