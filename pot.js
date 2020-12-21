@@ -1,5 +1,15 @@
 $("#ship").hide();
 $("#lives").hide();
+$("#GO").hide();
+
+$("#pirate").click(
+    function(){
+    clearInterval(pirateTimer);
+    window.location.reload();
+    }
+);
+
+
 $("#playbt").mouseenter(function () {
     $("#playbt").effect("bounce", 300);
 });
@@ -84,6 +94,9 @@ function Game() {
 
 }
 
+
+var pirateTimer;
+
 function Damage(cls,ind){
     var sel = ".bomb"+cls;
     $("#ship").effect("shake",400);
@@ -99,7 +112,12 @@ function Damage(cls,ind){
             $("body").children().hide();
             Mute();
             PlayAudio("GameOver");
-            
+            setTimeout(function(){
+                $("#GO").fadeIn(3000);
+            },2000)
+            pirateTimer = setInterval(function(){
+                $("#pirate").effect("bounce",1000);
+            },5000)
         },1000);
         //location.reload();
         return;

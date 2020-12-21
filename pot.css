@@ -12,7 +12,7 @@ body{
     bottom: 50px;
 }
 
-button{
+#playbt{
     font-family:fantasy;
     font-size: 36;
     text-align: center;
@@ -85,7 +85,9 @@ button{
 }
 
 .bomb1{
-     margin-left: 890px;
+    font-weight: 300;
+    font-family: serif;
+    margin-left: 890px;
     margin-top: 125px;
     position: absolute;
     text-align: center;
@@ -101,6 +103,8 @@ button{
 }
 
 .bomb2{
+    font-weight: 300;
+    font-family: serif;
     margin-left: 890px;
     margin-top: 250px;
     position: absolute;
@@ -116,6 +120,8 @@ button{
     height: 30px;
 }
 .bomb3{
+    font-weight: 300;
+    font-family: serif;
     margin-left: 890px;
     margin-top: 400px;
     position: absolute;
@@ -129,4 +135,23 @@ button{
     border-radius: 15px;
     width: 30px;
     height: 30px;
+}
+
+/*Gold and Black*/
+#GO{
+    padding: 3px;
+    font-size: 24;
+    text-align: center;
+    background-color: black; 
+    color: whitesmoke; 
+    font-family: fantasy;
+    border: 10px;
+    border-radius: 5px;
+    width: 400px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    
+    
 }
