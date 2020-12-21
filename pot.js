@@ -188,7 +188,7 @@ function Damage(cls,ind,key){
             },5000)
         },1000);
         //location.reload();
-        alert(onScreenLetters+" "+score);
+        $("#scr").html("Score: "+score);
         return;
     }
     if(lives>0)
