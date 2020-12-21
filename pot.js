@@ -3,9 +3,9 @@ $("#lives").hide();
 $("#GO").hide();
 
 $("#pirate").click(
-    function(){
-    clearInterval(pirateTimer);
-    window.location.reload();
+    function () {
+        clearInterval(pirateTimer);
+        window.location.reload();
     }
 );
 
@@ -32,25 +32,32 @@ function StartGame() {
     highScore = 0; //get highscore using cookies
     bombId = 0;
     speed = 2000;
-    playing=true;
+    playing = true;
     Game();
 
 }
 
 document.addEventListener("keydown", function (event) {
-    if(!playing) event.preventDefault();
+    if (!playing) event.preventDefault();
     var key = String.fromCharCode(event.keyCode);
-    var trimmed = deleteChar(onScreenLetters,key);
-    if(trimmed=="-1"){score-=2; if(score<0)score=0; changeScore();}
-    else {
+    var trimmed = deleteChar(onScreenLetters, key);
+
+    if (trimmed == "-1") {
+        score = score - 2;
+        if (score < 0) {
+            score = 0;
+        }
+
+        changeScore();
+    } else {
         onScreenLetters = trimmed;
         score++;
         changeScore();
         removeBomb(key);
     }
-    
-    
-  });
+
+
+});
 
 
 function ChangeBackgroundImg(img) {
@@ -58,12 +65,12 @@ function ChangeBackgroundImg(img) {
 }
 
 function PlayAudio(audioid) {
-    document.querySelector("#" + audioid).currentTime =0;
+    document.querySelector("#" + audioid).currentTime = 0;
     document.querySelector("#" + audioid).play();
 }
 
-function Mute(){
-    for(var i=0;i<document.querySelectorAll("audio").length;i++){
+function Mute() {
+    for (var i = 0; i < document.querySelectorAll("audio").length; i++) {
         document.querySelectorAll("audio")[i].pause();
     }
 }
@@ -92,9 +99,9 @@ function Game() {
         if (speed >= 400)
             speed -= 200;
     }, 15000);
-    stepTimer = setInterval(function(){
-        step+=1;
-    },10000);
+    stepTimer = setInterval(function () {
+        step += 1;
+    }, 10000);
 
 
     moverTimer = setInterval(function () {
@@ -103,10 +110,10 @@ function Game() {
             if (x.length != 0) {
                 for (var i = 0; i < x.length; i++) {
                     x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - step) + "px";
-                    if((parseInt(getComputedStyle(x[i]).marginLeft)<=-100)){
-                    var k = x[i].innerHTML;
-                        Damage(j,i,k);
-                        
+                    if ((parseInt(getComputedStyle(x[i]).marginLeft) <= -100)) {
+                        var k = x[i].innerHTML;
+                        Damage(j, i, k);
+
                     }
                 }
             }
@@ -116,63 +123,66 @@ function Game() {
 
 }
 
-function deleteChar(str,key){
-    var regex = new RegExp(key,"g");
+function deleteChar(str, key) {
+    var regex = new RegExp(key, "g");
     var del = onScreenLetters.search(regex);
     var s = "";
-    if(del==-1) return "-1";
-    else{
-        for(var i=0;i<str.length;i++){
-            if(i!=del) s+=str.charAt(i);
+    if (del == -1) return "-1";
+    else {
+        for (var i = 0; i < str.length; i++) {
+            if (i != del) s += str.charAt(i);
         }
     }
     return s;
 }
 
-function removeBomb(letter){
-    var flag =false;
-    for(var j=1;j<=3 && !flag;j++){
-        var bombs = document.querySelectorAll(".bomb"+j);
-        for(var i=0;i<bombs.length && !flag;i++){
-            if(bombs[i].innerHTML==letter){
+function removeBomb(letter) {
+    var flag = false;
+    for (var j = 1; j <= 3 && !flag; j++) {
+        var bombs = document.querySelectorAll(".bomb" + j);
+        for (var i = 0; i < bombs.length && !flag; i++) {
+            if (bombs[i].innerHTML == letter) {
                 bombs[i].remove();
                 PlayAudio("explode");
-                flag=true;
+                flag = true;
             }
         }
     }
 }
 
-function changeScore(){
-    var dig=0;
-    var s = score;
-    while(s>0)
-    {
-        s=parseInt(s)/10;
+function changeScore() {
+    var dig = 0;
+    var s = parseInt(score);
+    if (score == 0) {
+        $("#score").html("Score:000000");
+        return;
+    }
+    while (s > 0) {
+        s = parseInt(s) / 10;
         dig++;
     }
-    var str = "Score: ";
-    for(var i=0;i<=(6-dig);i++)
-        str+="0";
-    console.log(dig)
-    console.log(str);
-    str+= score.toString();
+    var str = "Score:";
+    for (var i = 0; i <= (6 - dig); i++) {
+        str += "0";
+    }
+
+    str += score.toString();
     $("#score").html(str);
 }
 
 var pirateTimer; //new game key
 
-function Damage(cls,ind,key){
-    var del=deleteChar(onScreenLetters,key);
-    if(del!="-1") onScreenLetters = del;
-        
-    var sel = ".bomb"+cls;
-    $("#ship").effect("shake",400);
+function Damage(cls, ind, key) {
+    var del = deleteChar(onScreenLetters, key);
+    if (del != "-1") onScreenLetters = del;
+
+    var sel = ".bomb" + cls;
+    $("#ship").effect("shake", 400);
     PlayAudio("Crash");
     lives--;
-    if(lives==0) {
-        setTimeout(function(){
-            playing=false;
+    if (lives == 0) {
+        setTimeout(function () {
+            playing = false;
             clearInterval(bombTimer);
             clearInterval(levelTimer);
             clearInterval(moverTimer);
@@ -180,21 +190,21 @@ function Damage(cls,ind,key){
             $("body").children().hide();
             Mute();
             PlayAudio("GameOver");
-            setTimeout(function(){
+            setTimeout(function () {
                 $("#GO").fadeIn(3000);
-            },2000)
-            pirateTimer = setInterval(function(){
-                $("#pirate").effect("bounce",1000);
-            },5000)
-        },1000);
+            }, 2000)
+            pirateTimer = setInterval(function () {
+                $("#pirate").effect("bounce", 1000);
+            }, 5000)
+        }, 1000);
         //location.reload();
-        $("#scr").html("Score: "+score);
+        $("#scr").html("Score: " + score);
         return;
     }
-    if(lives>0)
-    $("#lives").children().eq(0).children().eq(lives).hide();
+    if (lives > 0)
+        $("#lives").children().eq(0).children().eq(lives).hide();
     $(sel).eq(ind).remove();
-    
+
 }
 //fn lose life
 //add listener on key press for body, check if character is in onScreenLetters
