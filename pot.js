@@ -28,6 +28,7 @@ function StartGame() {
     $("#lives").show();
     lives = 5;
     score = 0;
+    step = 5;
     highScore = 0; //get highscore using cookies
     bombId = 0;
     speed = 2000;
@@ -52,7 +53,9 @@ function Mute(){
 
 var bombTimer;
 var levelTimer;
+var stepTimer;
 var speed;
+var step;
 var onScreenLetters = "";
 const alphabet = "abcdefghijklmnopqrstuvwxyz";
 var bombId; //remove all references
@@ -71,16 +74,18 @@ function Game() {
     levelTimer = setInterval(function () {
         if (speed >= 200)
             speed -= 100;
-    }, 20000);
-    var x = document.querySelectorAll('label')[3];
-    console.log(x);
+    }, 15000);
+    stepTimer = setInterval(function(){
+        step+=1;
+    },10000);
+
 
     moverTimer = setInterval(function () {
         for (var j = 1; j <= 3; j++) {
             var x = document.querySelectorAll(".bomb" + j);
             if (x.length != 0) {
                 for (var i = 0; i < x.length; i++) {
-                    x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - 5) + "px";
+                    x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - step) + "px";
                     if((parseInt(getComputedStyle(x[i]).marginLeft)<=-100)){
                           
                         Damage(j,i);
@@ -95,7 +100,7 @@ function Game() {
 }
 
 
-var pirateTimer;
+var pirateTimer; //new game key
 
 function Damage(cls,ind){
     var sel = ".bomb"+cls;
@@ -129,3 +134,4 @@ function Damage(cls,ind){
 }
 //fn lose life
 //add listener on key press for body, check if character is in onScreenLetters
+//flag mute
