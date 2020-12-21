@@ -82,6 +82,12 @@ function Damage(cls,ind){
     $("#ship").effect("shake",400);
     PlayAudio("Crash");
     lives--;
+    $("#lives").children().eq(0).children().eq(lives).hide();
+    if(lives==0) {
+        alert("GameOver");
+        //location.reload();
+        return;
+    }
     $(sel).eq(ind).remove();
     
 }

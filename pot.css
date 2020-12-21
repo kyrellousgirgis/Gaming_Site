@@ -77,7 +77,7 @@ button{
 #score{
     position: fixed;
     margin-right: 0px;
-    padding-left: 500px;
+    left:1300px;
     top:55px;
     color: whitesmoke;
     font-family:fantasy;
