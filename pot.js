@@ -57,24 +57,19 @@ function Game() {
     }, 20000);
     var x = document.querySelectorAll('label')[3];
     console.log(x);
-    
+
     moverTimer = setInterval(function () {
-        var x = document.querySelectorAll(".bomb1");
-        if(x.length!=0){
-            for(var i=0;i<x.length;i++){
-                x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft)-10)+"px";
+        for (var j = 1; j <= 3; j++) {
+            var x = document.querySelectorAll(".bomb" + j);
+            if (x.length != 0) {
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.marginLeft = (parseInt(getComputedStyle(x[i]).marginLeft) - 10) + "px";
+                }
             }
         }
-            
-        },100);
-       /* for (var j = 1; j <= 3; j++)
-            for (var x in document.querySelectorAll(".bomb1")) {
-                //document.querySelectorAll(".bomb" + j)[i].style.marginLeft =
-                    x.style.marginLeft =
-                    //(parseInt(document.querySelectorAll(".bomb" + j)[i].style.marginLeft) - 10) + "px";
-                    (parseInt(x.style.marginLeft) - 10) + "px";
-            }
-    }, 50); // can add a feature here*/
+
+    }, 50);
+
 }
 //fn lose life
 //add listener on key press for body, check if character is in onScreenLetters
