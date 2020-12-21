@@ -84,3 +84,50 @@ button{
     font-family:fantasy;
     font-size: 30;
 }
+
+.bomb1{
+    margin-left: 99%;
+     margin-top: 100px;
+    position: absolute;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    border: 2px;
+    font-size: 24;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.bomb2{
+    margin-left: 99%;
+    margin-top: 250px;
+    position: absolute;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    border: 2px;
+    font-size: 24;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+.bomb3{
+    margin-left: 99%;
+    margin-top: 400px;
+    position: absolute;
+    text-align: center;
+    background-color: black;
+    color: whitesmoke;
+    border: 2px;
+    font-size: 24;
+    border-style: solid;
+    border-color: whitesmoke;
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
