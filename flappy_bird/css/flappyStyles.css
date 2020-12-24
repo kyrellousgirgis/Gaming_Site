@@ -1,4 +1,45 @@
-.img{
+#bird{
+    height: 50px;
+    width:50px; 
     
-    
+}
+body{
+    background-image: url(../imgs/46888871-624a3900-ce7f-11e8-808e-99fd90c8a3f4.png);
+}
+#para{
+    margin: auto;
+    text-align: center;
+    width: 400px;
+}
+
+@font-face{
+    font-family:oldGame;
+    src:url("../fonts/OldSchoolAdventures-42j9.ttf");
+    font-weight:bolder;
+}
+
+label{
+    color: white;
+    font-family: oldGame;
+    font-weight: bolder;
+}
+
+p{
+    color: white;
+    font-family: oldGame;
+    font-weight: bolder;
+}
+
+
+td{
+    padding-left: 15px;
+}
+#header{
+    width: 70%;
+   
+}
+#highestScoreColumn{
+
+    display: inline;
+    float: right;
 }

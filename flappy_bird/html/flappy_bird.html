@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="../css/flappyStyles.css" rel="stylesheet" >
     </head>
     <body>
-        <script src="flappy_script"></script>
+        <div id="header">
+            <table style="width: 100%">
+                <tr><td><label id="level">Level: </label></td><td><label id="levelData"></label></td><td><label id="score">Score: </label></td><td><label id="scoreData"></label></td><div><td id ="highestScoreColumn"><label>Highest Score: </label></td></div><td ><label id="highestScoreData"></label></td></tr>
+            
+            </table>
+
+        </div>
+       
+        <div id="birdCont">
+            <img src="../imgs/bird.png" id="bird">
+        </div>
+        <div id="para">
+            <p>Press any key to start...</p>
+        </div>
+        
+        <script src="../../Libraries/cookieMin.js"></script>
+        <script src="../../Libraries/jQ-Dev.js"></script>
+        <script src="../../Libraries/jquery-ui.js"></script>
+        <script src="../scripts/flappy_script.js"></script>
     </body>
 </html>
