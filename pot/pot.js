@@ -1,6 +1,7 @@
 $("#ship").hide();
 $("#lives").hide();
 $("#GO").hide();
+$("#sound").hide();
 
 $("#pirate").click(
     function () {
@@ -10,22 +11,48 @@ $("#pirate").click(
 );
 
 
+
 $("#playbt").mouseenter(function () {
-    $("#playbt").effect("bounce", 300);
+    $(this).effect("bounce", 300);
 });
 
 var lives;
 var score;
 var highScore;
+var playSounds;
+
+$("#sound").click(function(){
+    if(playSounds){
+        playSounds = false;
+        $(this).attr("src","./potImgs/mute.png");
+        Mute();
+    }
+    else{
+        playSounds = true;
+         $(this).attr("src","./potImgs/unmute.png");
+        unMute();
+    }
+})
+
+function unMute(){
+    if(playing){
+        PlayAudio("BG");
+    }
+    else if (!playing){
+        PlayAudio("GameOver");
+    }
+}
 
 
 function StartGame() {
+    playSounds = true;
     PlayAudio("BG");
     ChangeBackgroundImg("seabg.jpg");
     $("#startmenu").hide();
     $("#logo").hide();
     $("#ship").show();
     $("#lives").show();
+    $("#sound").show();
     lives = 5;
     score = 0;
     step = 5;
@@ -64,9 +91,12 @@ function ChangeBackgroundImg(img) {
     $("body").css("background-image", "url(" + "./potImgs/" + img + ')');
 }
 
-function PlayAudio(audioid) {
-    document.querySelector("#" + audioid).currentTime = 0;
-    document.querySelector("#" + audioid).play();
+function PlayAudio(audioid, reset) {
+    if(playSounds){
+        if(reset == true)
+            document.querySelector("#" + audioid).currentTime = 0;
+        document.querySelector("#" + audioid).play();
+    }
 }
 
 function Mute() {
@@ -143,7 +173,7 @@ function removeBomb(letter) {
         for (var i = 0; i < bombs.length && !flag; i++) {
             if (bombs[i].innerHTML == letter) {
                 bombs[i].remove();
-                PlayAudio("explode");
+                PlayAudio("explode",true);
                 flag = true;
             }
         }
@@ -192,6 +222,8 @@ function Damage(cls, ind, key) {
             PlayAudio("GameOver");
             setTimeout(function () {
                 $("#GO").fadeIn(3000);
+                $("#sound").css("left", "1400px");
+                $("#sound").fadeIn(3000);
             }, 2000)
             pirateTimer = setInterval(function () {
                 $("#pirate").effect("bounce", 1000);
