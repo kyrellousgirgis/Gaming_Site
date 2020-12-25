@@ -74,7 +74,10 @@ document.addEventListener("keydown", function (event) {
         if (score < 0) {
             score = 0;
         }
-
+        $("#score").css("color","red");
+        setInterval(function(){
+               $("#score").css("color","whitesmoke");     
+                    },500);
         changeScore();
     } else {
         onScreenLetters = trimmed;
@@ -216,6 +219,7 @@ function Damage(cls, ind, key) {
             clearInterval(bombTimer);
             clearInterval(levelTimer);
             clearInterval(moverTimer);
+   
             ChangeBackgroundImg("GameOver2.jpeg");
             $("body").children().hide();
             Mute();
