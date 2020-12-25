@@ -241,3 +241,5 @@ function Damage(cls, ind, key) {
 //fn lose life
 //add listener on key press for body, check if character is in onScreenLetters
 //flag mute
+
+
