@@ -59,8 +59,11 @@ function Game(){
         $(hero).css("left",pos +"px");
         $(hero).css("top",-60);
         $(hero).show();
+        console.log(playSounds);
+        PlayAudio("Enter",true);
         
           },heroSpeed);
+    
         
         var fallTimer = setInterval(function(){
             for(var i=0;i<$(".hero").length;i++){
