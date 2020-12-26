@@ -84,6 +84,17 @@ body{
     font-size: 30;
 }
 
+#hscore{
+    position: fixed;
+    margin-right: 0px;
+    left:950px;
+    top:55px;
+    color: whitesmoke;
+    font-family:fantasy;
+    font-size: 30;
+}
+
+
 .bomb1{
     font-weight: 300;
     font-family: serif;
@@ -168,3 +179,5 @@ body{
     /*left: 1400px;*/
     
 }
+
+

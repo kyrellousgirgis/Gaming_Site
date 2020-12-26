@@ -11,6 +11,7 @@ $("#start").mouseout(function(){
     $(this).css("opacity","75%");
 });
 
+
 $("#play-again-btn").mouseover(function(){
     $(this).css("opacity","100%");
 });
@@ -18,6 +19,7 @@ $("#play-again-btn").mouseover(function(){
 $("#play-again-btn").mouseout(function(){
     $(this).css("opacity","75%");
 });
+
 
 var playSounds = true;
 
@@ -30,9 +32,11 @@ $("#start").click(function(){
     
 });
 
+
 $("#play-again-btn").click(function(){
     location.reload();
 })
+
 
 function PlayAudio(audioid, reset) {
     if(playSounds){
@@ -41,6 +45,7 @@ function PlayAudio(audioid, reset) {
         document.querySelector("#" + audioid).play();
     }
 }
+
 
 
 function collision($div1, $div2) {
@@ -65,6 +70,10 @@ function collision($div1, $div2) {
              
 var score = 0;
 var lives = 5;
+
+             
+var score = 0;
+
 var playing = false;
 var heroTimer;
 var heroSpeed = 2000;
@@ -104,6 +113,7 @@ function Game(){
                 var tp =  parseInt($(".hero").eq(i).css("top"));
                 $(".hero").eq(i).css("top",tp+fallSpeed+"px");
 
+
                 var hero = $(".hero").eq(i);
                 var ship = $("#ship");
                 if(collision(hero,ship)){
@@ -139,6 +149,7 @@ function Game(){
                     }
                     
                 }
+
             
             }
                 
@@ -146,6 +157,7 @@ function Game(){
            for(var i=0;i<$(".villain").length;i++){
                 var tp =  parseInt($(".villain").eq(i).css("top"));
                 $(".villain").eq(i).css("top",tp+fallSpeed+"px");
+
 
                 var villain = $(".villain").eq(i);
                 var ship = $("#ship");
@@ -169,6 +181,7 @@ function Game(){
                 if(tp > 810){
                     $(".villain").eq(i).fadeOut(500).remove();
                 }
+
             
             }
         },25);
