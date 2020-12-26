@@ -10,6 +10,12 @@ $("#pirate").click(
     }
 );
 
+var highScore;
+var newHighScore;
+if(cki.hasCookie("pothighscore")){
+    highScore = cki.getCookie("pothighscore");
+      $("#hscore").html("Previous HighScore: "+ highScore);
+}
 
 
 $("#playbt").mouseenter(function () {
@@ -18,7 +24,6 @@ $("#playbt").mouseenter(function () {
 
 var lives;
 var score;
-var highScore;
 var playSounds;
 
 $("#sound").click(function(){
@@ -56,10 +61,10 @@ function StartGame() {
     lives = 5;
     score = 0;
     step = 5;
-    highScore = 0; //get highscore using cookies
     bombId = 0;
     speed = 2000;
     playing = true;
+    newHighScore = false;
     Game();
 
 }
@@ -74,7 +79,10 @@ document.addEventListener("keydown", function (event) {
         if (score < 0) {
             score = 0;
         }
-
+        $("#score").css("color","red");
+        setInterval(function(){
+               $("#score").css("color","whitesmoke");     
+                    },500);
         changeScore();
     } else {
         onScreenLetters = trimmed;
@@ -211,11 +219,26 @@ function Damage(cls, ind, key) {
     PlayAudio("Crash");
     lives--;
     if (lives == 0) {
+        
+        if(highScore<score){
+                highScore = score;
+                newHighScore = true;
+            
+                var expDate = new Date();
+                expDate.setMonth(expDate.getMonth()+3);
+            
+                cki.setCookie("pothighscore",highScore,expDate);
+            
+        }
+        
+        
         setTimeout(function () {
             playing = false;
             clearInterval(bombTimer);
             clearInterval(levelTimer);
             clearInterval(moverTimer);
+            
+            
             ChangeBackgroundImg("GameOver2.jpeg");
             $("body").children().hide();
             Mute();
@@ -229,8 +252,9 @@ function Damage(cls, ind, key) {
                 $("#pirate").effect("bounce", 1000);
             }, 5000)
         }, 1000);
+        //console.log(newHighScore);
         //location.reload();
-        $("#scr").html("Score: " + score);
+        $("#scr").html(newHighScore==true?("New High Score: " + score ):("Score: " + score));
         return;
     }
     if (lives > 0)
@@ -241,3 +265,5 @@ function Damage(cls, ind, key) {
 //fn lose life
 //add listener on key press for body, check if character is in onScreenLetters
 //flag mute
+
+
