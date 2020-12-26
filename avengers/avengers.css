@@ -1,7 +1,38 @@
-.hero{
-    
+body{
+    background-image: url("./avgImgs/Space.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
-.villan{
-    
+.hero{
+    height: 90px;
+    width: 85px;
+    position: absolute;
+}
+
+.villain{
+    height: 90px;
+    width: 85px;
+    position: absolute;
+}
+
+label{
+    color: white;
+    font-size: 24;
+    margin-right: 200px;
+    font-family: fantasy;
+}
+
+#GameBar{
+    position: fixed;
+    top:95%;
+    padding-left: 20px;
+}
+
+#ship{
+    width: 250px;
+    height: 120px;
+    position: absolute;
+    top:78%;
 }
