@@ -11,6 +11,16 @@ $("#start").mouseout(function(){
     $(this).css("opacity","75%");
 });
 
+
+$("#play-again-btn").mouseover(function(){
+    $(this).css("opacity","100%");
+});
+
+$("#play-again-btn").mouseout(function(){
+    $(this).css("opacity","75%");
+});
+
+
 var playSounds = true;
 
 $("#start").click(function(){
@@ -22,6 +32,12 @@ $("#start").click(function(){
     
 });
 
+
+$("#play-again-btn").click(function(){
+    location.reload();
+})
+
+
 function PlayAudio(audioid, reset) {
     if(playSounds){
         if(reset == true)
@@ -30,13 +46,40 @@ function PlayAudio(audioid, reset) {
     }
 }
 
+
+
+function collision($div1, $div2) {
+    var x1 = $div1.offset().left;
+    var y1 = $div1.offset().top;
+    var h1 = $div1.outerHeight(true);
+    var w1 = $div1.outerWidth(true);
+    var b1 = y1 + h1;
+    var r1 = x1 + w1;
+    var x2 = $div2.offset().left;
+    var y2 = $div2.offset().top;
+    var h2 = $div2.outerHeight(true);
+    var w2 = $div2.outerWidth(true);
+    var b2 = y2 + h2;
+    var r2 = x2+ w2;
+
+    if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    return true;
+}
+
+
              
 var score = 0;
+var lives = 5;
+
+             
+var score = 0;
+
 var playing = false;
 var heroTimer;
 var heroSpeed = 2000;
 var fallTimer;
 var fallSpeed = 5;
+
 function Game(){
     playing = true;
     heroTimer= setInterval(function(){
@@ -69,6 +112,44 @@ function Game(){
             for(var i=0;i<$(".hero").length;i++){
                 var tp =  parseInt($(".hero").eq(i).css("top"));
                 $(".hero").eq(i).css("top",tp+fallSpeed+"px");
+
+
+                var hero = $(".hero").eq(i);
+                var ship = $("#ship");
+                if(collision(hero,ship)){
+                    if(hero.attr("src") == "./avgImgs/strange.png"){
+                        lives++;
+                        PlayAudio("Save",true);
+                        $("#live-spn").html(lives);
+                        hero.fadeOut(100).remove();
+                        score++; 
+                        $("#score-spn").text(score);   
+                    }else{
+                        PlayAudio("Save",true);
+                        hero.fadeOut(100).remove();
+                        score++; 
+                        $("#score-spn").text(score);
+                    }
+                    
+                }
+                if(tp > 810){
+                    if(lives > 1){
+                        $(".hero").eq(i).fadeOut(500).remove();
+                        lives--;
+                        $("#live-spn").html(lives);
+                    }else{
+                        //gameOver
+                        lives--;
+                        $("#live-spn").html(lives);
+                        clearInterval(heroTimer);
+                        clearInterval(fallTimer);
+                        playing = false;  
+                        $("#ply-agn").show();
+                        $("#final-score").text(score);
+                    }
+                    
+                }
+
             
             }
                 
@@ -76,6 +157,31 @@ function Game(){
            for(var i=0;i<$(".villain").length;i++){
                 var tp =  parseInt($(".villain").eq(i).css("top"));
                 $(".villain").eq(i).css("top",tp+fallSpeed+"px");
+
+
+                var villain = $(".villain").eq(i);
+                var ship = $("#ship");
+                if(collision(villain,ship)){
+                    if(lives > 1){
+                        villain.fadeOut(100).remove();
+                        lives--;
+                        $("#live-spn").html(lives);
+                    }else{
+                        //gameOver
+                        lives--;
+                        $("#live-spn").html(lives);
+                        clearInterval(heroTimer);
+                        clearInterval(fallTimer);
+                        playing = false;  
+                        $("#ply-agn").show();
+                        $("#final-score").text(score);
+                    }
+                    
+                }
+                if(tp > 810){
+                    $(".villain").eq(i).fadeOut(500).remove();
+                }
+
             
             }
         },25);

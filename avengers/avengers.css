@@ -66,3 +66,23 @@ p{
     text-align: center;
 }
 
+
+#ply-agn{
+    position: absolute;
+    top: 27%;
+    right: 35%;
+    z-index: 1;
+}
+
+#play-again-btn{
+    opacity: 75%;
+    background-color: rebeccapurple;
+    width: 200px;
+    font-family: fantasy;
+    font-size: 28;
+    color: white;
+    border-radius: 5px;
+    border-color:darkorange;
+}
+
+
