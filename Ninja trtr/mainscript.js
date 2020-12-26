@@ -230,9 +230,11 @@ console.log($("#image").position().top +2,$("#image").position().left+2);
   //   }, x);
 
 
+var sign;
 
 
   function playGame() {
+    debugger;
     menuSound.pause();
     boomflag = 0;
     //debugger;
@@ -255,11 +257,19 @@ console.log($("#image").position().top +2,$("#image").position().left+2);
       function () {
         // document.getElementById("fru").style["bottom"] +=`12 step +"%";
         // $("#fru").css({'top': ''+ $("#fru").position().top - step+"%"});
-        $("#fru").css('top', $("#fru").position().top - step);
-        if ($("#fru").position().top < -19) {
+        if( ($("#fru").position().top <=120))
+        {        
+          sign= -1;
+        }
+        $("#fru").css('top', $("#fru").position().top - (step * sign));
+        
+      //  $("#fru").css('top', $("#fru").position().top - step);
+        if ($("#fru").position().top > 330 ) {
           if (lives >= 1) {
             if(document.getElementById("image").src.split("/")[4]!= "boom.png"){
-            lives--;
+            
+              lives--;
+
             mistakes();
           }
             var mis = new Audio("sound/BikeHorn.mp3");
@@ -277,6 +287,7 @@ console.log($("#image").position().top +2,$("#image").position().left+2);
             console.log("don2");
           }
           else {
+            topsign =false;
             //clearInterval(action);
             console.log("lives" + lives);
             console.log("Game Over");
@@ -285,6 +296,7 @@ console.log($("#image").position().top +2,$("#image").position().left+2);
 
           }
         }
+
       }, 10);
 
 
@@ -315,6 +327,7 @@ console.log($("#image").position().top +2,$("#image").position().left+2);
 
 
   function chooseFruit() {
+    sign =1;
     var x = Math.round(4 * Math.random());
     if (arr[x] == "boom") {
       boomflag = 1;
