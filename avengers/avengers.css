@@ -3,6 +3,7 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    text-align: center;
 }
 
 .hero{
@@ -33,6 +34,28 @@ label{
 #ship{
     width: 250px;
     height: 120px;
+    left: 650px;
     position: absolute;
     top:78%;
 }
+
+
+p{
+  
+    color: white;
+    font-size: 24;
+    font-family: fantasy;
+    text-shadow: 1px black;
+}
+
+#start{
+    opacity: 80%;
+    background-color: rebeccapurple;
+    width: 200px;
+    font-family: fantasy;
+    font-size: 28;
+    color: white;
+    border-radius: 5px;
+    border-color:darkorange;
+}
+
