@@ -51,7 +51,7 @@ function Game(){
             pos+=50;
         
         if(pos<=50) pos=50;
-        else if(pos>=max-50) pos=max+50;
+        else if(pos>=max-50) pos=max-50;
         
         $(hero).css("left",pos +"px");
         $(hero).css("top",-60);
