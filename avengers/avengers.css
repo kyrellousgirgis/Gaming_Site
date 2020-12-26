@@ -3,19 +3,21 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    text-align: center;
+    
 }
 
 .hero{
     height: 90px;
     width: 85px;
     position: absolute;
+    left: 0;
 }
 
 .villain{
     height: 90px;
     width: 85px;
     position: absolute;
+    left: 0;
 }
 
 label{
@@ -57,5 +59,10 @@ p{
     color: white;
     border-radius: 5px;
     border-color:darkorange;
+    
+}
+
+#htp{
+    text-align: center;
 }
 
