@@ -41,7 +41,10 @@ function Game(){
     playing = true;
     heroTimer= setInterval(function(){
         var heroId = Math.floor(Math.random()*9)  + 1;
-        var hero = document.querySelector('#h'+heroId);
+        
+        hero = document.querySelector('#h'+heroId).cloneNode(true);
+        document.body.appendChild(hero);
+        //$(hero).show();
         
         var max = window.innerWidth-hero.width;
         var pos =  Math.floor(Math.random()*(max));
