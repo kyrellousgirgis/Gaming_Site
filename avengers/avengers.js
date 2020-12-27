@@ -137,6 +137,7 @@ function Game(){
                         clearInterval(heroTimer);
                         clearInterval(fallTimer);
                         playing = false;  
+                        $("body").children().hide();
                         $("#ply-agn").show();
                         $("#final-score").text(score);
                     }
@@ -166,6 +167,7 @@ function Game(){
                         clearInterval(heroTimer);
                         clearInterval(fallTimer);
                         playing = false;  
+                        $("body").children().hide();
                         $("#ply-agn").show();
                         $("#final-score").text(score);
                     }
