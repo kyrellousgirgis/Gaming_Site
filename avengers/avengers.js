@@ -11,7 +11,6 @@ $("#start").mouseout(function(){
     $(this).css("opacity","75%");
 });
 
-
 $("#play-again-btn").mouseover(function(){
     $(this).css("opacity","100%");
 });
@@ -19,7 +18,6 @@ $("#play-again-btn").mouseover(function(){
 $("#play-again-btn").mouseout(function(){
     $(this).css("opacity","75%");
 });
-
 
 var playSounds = true;
 
@@ -32,11 +30,9 @@ $("#start").click(function(){
     
 });
 
-
 $("#play-again-btn").click(function(){
     location.reload();
 })
-
 
 function PlayAudio(audioid, reset) {
     if(playSounds){
@@ -45,7 +41,6 @@ function PlayAudio(audioid, reset) {
         document.querySelector("#" + audioid).play();
     }
 }
-
 
 
 function collision($div1, $div2) {
@@ -70,10 +65,6 @@ function collision($div1, $div2) {
              
 var score = 0;
 var lives = 5;
-
-             
-var score = 0;
-
 var playing = false;
 var heroTimer;
 var heroSpeed = 2000;
@@ -102,7 +93,7 @@ function Game(){
         $(hero).css("left",pos +"px");
         $(hero).css("top",-60);
         $(hero).show();
-        console.log(playSounds);
+        //console.log(playSounds);
         PlayAudio("Enter",true);
         
           },heroSpeed);
@@ -113,12 +104,12 @@ function Game(){
                 var tp =  parseInt($(".hero").eq(i).css("top"));
                 $(".hero").eq(i).css("top",tp+fallSpeed+"px");
 
-
                 var hero = $(".hero").eq(i);
                 var ship = $("#ship");
                 if(collision(hero,ship)){
                     if(hero.attr("src") == "./avgImgs/strange.png"){
                         lives++;
+                        lifeGained();
                         PlayAudio("Save",true);
                         $("#live-spn").html(lives);
                         hero.fadeOut(100).remove();
@@ -132,15 +123,17 @@ function Game(){
                     }
                     
                 }
-                if(tp > 810){
+                if(tp > window.innerHeight-parseInt($(hero).css("height"))-10){
                     if(lives > 1){
                         $(".hero").eq(i).fadeOut(500).remove();
                         lives--;
                         $("#live-spn").html(lives);
+                        lifeLost();
                     }else{
-                        //gameOver
+                    //gameOve
                         lives--;
                         $("#live-spn").html(lives);
+                        lifeLost();
                         clearInterval(heroTimer);
                         clearInterval(fallTimer);
                         playing = false;  
@@ -149,7 +142,6 @@ function Game(){
                     }
                     
                 }
-
             
             }
                 
@@ -158,17 +150,18 @@ function Game(){
                 var tp =  parseInt($(".villain").eq(i).css("top"));
                 $(".villain").eq(i).css("top",tp+fallSpeed+"px");
 
-
                 var villain = $(".villain").eq(i);
                 var ship = $("#ship");
                 if(collision(villain,ship)){
                     if(lives > 1){
                         villain.fadeOut(100).remove();
                         lives--;
+                        lifeLost();
                         $("#live-spn").html(lives);
                     }else{
                         //gameOver
                         lives--;
+                        lifeLost();
                         $("#live-spn").html(lives);
                         clearInterval(heroTimer);
                         clearInterval(fallTimer);
@@ -178,11 +171,11 @@ function Game(){
                     }
                     
                 }
-                if(tp > 810){
+                if(tp > window.innerHeight-parseInt($(hero).css("height"))-10){
+                   
                     $(".villain").eq(i).fadeOut(500).remove();
                 }
 
-            
             }
         },25);
              
@@ -206,4 +199,19 @@ $(this).keydown(function(event){
     }
     
 })
+
+function lifeLost(){
+
+    $("#GameBar").children().eq(0).css("color","red");
+    setInterval(function(){
+            $("#GameBar").children().eq(0).css("color","white");
+            },900);
+}
+
+function lifeGained(){
+    $("#GameBar").children().eq(0).css("color","green");
+    setInterval(function(){
+            $("#GameBar").children().eq(0).css("color","white");
+            },900);
+}
 
