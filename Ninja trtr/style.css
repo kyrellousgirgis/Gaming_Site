@@ -1,0 +1,151 @@
+#ninja{
+    position: absolute;
+    left: 33.25%;
+    /* margin-left: -320px; */
+
+    top:50px;
+    display: block;
+    box-shadow: 20px 20px 20px;
+   
+}
+
+
+#fruit{
+    position: absolute;
+    left: 3%;
+    top: 2%;
+    display: none;
+}
+#shade{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    display: none;
+}
+#logo{
+    position: absolute;
+    right: 5% ;
+    top: 65px;
+    display: none;
+   
+
+}
+#start{
+
+   
+
+}
+#sandia{
+    position: absolute;
+    left: 59%;
+    top:315px;
+    display: none;
+  
+}
+#newgame{
+    position: absolute;
+    left: 52.5%;
+    top:260px;
+    display: none;
+}
+#end{
+   
+}
+#peach
+{
+    position: absolute;
+    left: 25%;
+    top:375px;
+    display: none;
+    
+}
+#quit{
+    position: absolute;
+    left: 20%;
+    top:332px;
+    display: none;
+ 
+}
+#desc{
+    position: absolute;
+    left: 30%;
+    top: 180px;
+    opacity: 0;
+}
+#flash{
+    position: fixed;
+    left: 57%;
+    top:380px;
+   height: 8px;
+   transform: rotate(-45deg);
+   opacity: 0;
+}
+#flash1{
+    position: fixed;
+    left: 40%;
+    top:389px;
+   height: 6px;
+   transform: rotate(-45deg);
+   opacity: 0;
+}
+#sandia1,#sandia2
+{
+    position: fixed;
+    left: 55%;
+    top:358px;
+     opacity: 0; 
+    transform: rotate(30deg);
+    
+}
+#peach-1,#peach-2
+{
+    opacity: 0;  
+    position: fixed;
+    left: 38%;
+    top:389px;
+    
+    transform: rotate(90deg);  
+    
+}
+#fru{
+    
+    position: absolute;
+    /* top: 50%; */
+    left:50%;
+    width: 60px;
+    height: 50px;
+    
+/* top: 100 px; */
+}
+#scoreDiv{
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2 rem;
+    box-shadow: 10px 10px 10px;
+
+}
+#misDiv{
+    position: absolute;
+    top: 0%;
+    right: 5%;
+}
+#lose{
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    text-align: center;
+}
+#part1,#part2,#fla4{
+    opacity: 0; 
+display: inline;
+}
+#fla4{    
+       left: 57%;
+       
+       height: 6px;
+       transform: rotate(-45deg);
+
+}
