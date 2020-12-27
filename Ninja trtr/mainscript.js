@@ -197,7 +197,7 @@ $(function () {
 
    
     //Send new fruit
-    yrab = setTimeout(playGame, 500);
+    yrab = setTimeout(playGame, 800);
   });
 
   function flashh() {
@@ -231,6 +231,9 @@ console.log($("#image").position().top +2,$("#image").position().left+2);
 
 
 var sign;
+var lflag = false;
+var lsign = 1;
+
 
 
   function playGame() {
@@ -261,11 +264,34 @@ var sign;
         {        
           sign= -1;
         }
-        $("#fru").css('top', $("#fru").position().top - (step * sign));
-        
+        if($("#fru").position().left>= 250 )
+        {
+          if(!lflag)
+          {
+           lsign =-1;
+           lflag=true;
+          }
+          $("#fru").css('left', $("#fru").position().left + (step*lsign)+"px" );
+         // lsign= ;
+        }
+        else {
+          if(!lflag)
+          {
+           lsign =1;
+           lflag=true;
+          }
+          $("#fru").css('left', $("#fru").position().left + (step*lsign)+"px" );
+        }
+       // $("#fru").css('left', $("#fru").position().left + (step*lsign)+"px" );
+        $("#fru").css('top', $("#fru").position().top - (step * sign)+"px");
+       // console.log("left=>>>"+$("#fru").css('left'));
       //  $("#fru").css('top', $("#fru").position().top - step);
-        if ($("#fru").position().top > 330 ) {
+        if ($("#fru").position().top > 330 
+        || parseInt($("#fru").css('left'))<= 50
+        || parseInt($("#fru").css('left'))>= 580) {
+          
           if (lives >= 1) {
+
             if(document.getElementById("image").src.split("/")[4]!= "boom.png"){
             
               lives--;
@@ -297,7 +323,7 @@ var sign;
           }
         }
 
-      }, 10);
+      }, 30);
 
 
   };
