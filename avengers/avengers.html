@@ -12,25 +12,25 @@
         <script src="./JQuery/jquery-3.5.1.js"></script>
         <script src="./JQueryUI/jquery-ui.min.js"></script>
 
-        
+
         <audio src="./avgMusic/Avengers.mp3" id="BG" type="audio/mpeg">
             Your browser does not support the <code>audio</code> element.
         </audio>
-        
-        
+
+
         <audio src="./avgMusic/Lazer.mp3" id="Enter" type="audio/mpeg">
             Your browser does not support the <code>audio</code> element.
         </audio>
-        
+
         <audio src="./avgMusic/Save.mp3" id="Save" type="audio/mpeg">
             Your browser does not support the <code>audio</code> element.
         </audio>
         <div id="GameBar">
-        <label> Lives: <span id="live-spn">5</span> </label>
-        <label> Score: <span id="score-spn">0</span> </label>
+            <label> Lives: <span id="live-spn">5</span> </label>
+            <label> Score: <span id="score-spn">0</span> </label>
         </div>
-        
-        <img id="h1" src="./avgImgs/cap.png"  class="hero">
+
+        <img id="h1" src="./avgImgs/cap.png" class="hero">
         <img id="h2" src="./avgImgs/hulk.png" class="hero">
         <img id="h3" src="./avgImgs/ironman.png" class="hero">
         <img id="h4" src="./avgImgs/spiderman.png" class="hero">
@@ -39,9 +39,9 @@
         <img id="h7" src="./avgImgs/widow.png" class="hero">
         <img id="h8" src="./avgImgs/thanos.png" class="villain">
         <img id="h9" src="./avgImgs/lokii.png" class="villain">
-        
+
         <img id="ship" src="./avgImgs/ship.png">
-        
+
         <div id="htp" style="margin-top: 12%;">
             <img src="./avgImgs/Symbol.png" style="width: 200px; height: 200px;">
             <p>
@@ -54,13 +54,27 @@
             <button id="start">Assemble</button>
         </div>
 
-        <div id="ply-agn" >
+        <div id="ply-agn">
             <img src="./avgImgs/Symbol.png" style="width: 200px; height: 200px;"> <br><br>
-            <label style="margin-right: auto; margin-left: auto;"> Your Score: <span id="final-score">0</span> </label> <br><br>
-            <button id="play-again-btn" >Play Again</button>
+            <label style="margin-right: auto; margin-left: auto;"> Your Score: <span id="final-score">0</span> </label>
+            <br><br>
+            <button id="play-again-btn">Play Again</button>
         </div>
-        
+
         <script src="avengers.js"></script>
+        <script>
+            // window.addEventListener("load", function () {
+            //     var userCookie = C.getCookie("User Name");
+            //     if (userCookie == null || userCookie == "") {
+
+            //        alert("you must login First");
+            //        location.assign("Home.html");
+
+            //     } else {
+            //         alert("Welcome to the Games World ;D")
+            //     }
+            // })
+        </script>
 
 
     </body>

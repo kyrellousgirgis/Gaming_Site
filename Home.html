@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title> Home Page</title>
+    <link rel="stylesheet" href="styles/homeStyle.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="f-title">
+            Games <span>Home</span>
+        </div>
+        <div class="nav-bar">
+            <a class="hover" href="Home.html">Home</a>
+            <a class="hover" id="game" href="Games.html">Games</a>
+            <a class="hover loggedOut" id="lgn" href="LoginForm.html">Login</a>
+            <a class="hover loggedOut" id="rgs" href="RegisterForm.html">Register</a>
+            <a class="hover loggedIn" id="lgout" onclick="onLogout()" href="#">Logout</a>
+        </div>
+
+        <div class="s-title">
+            All About Gaming
+            <div class="note"> Join the most entertaining platform </div>
+            <button class="read-more"> Read More</button>
+        </div>
+
+        <img src="homePageImg.jpg" width="350px" alt="">
+    </div>
+    <script src="Scripts/jQ-Dev.js"></script>
+    <script src="Scripts/jquery-ui.js"></script>
+    <script src="Scripts/rotate.js"></script>
+    <script src="Scripts/cookieLibrary.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            //$(".loggedIn").hide();
+            //debugger;
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+                $(".loggedOut").show();
+                $(".loggedIn").hide();
+
+            } else {
+                $(".loggedOut").hide();
+                $(".loggedIn").show();
+            }
+        })
+
+        var rotation = function () {
+            $(".f-title").rotate({
+                angle: 0,
+                animateTo: 360,
+                // callback: rotation
+            });
+        }
+        setInterval(rotation, 5000);
+
+        $(".hover").mouseover(function () {
+            $(this).effect("bounce", "slow");
+        })
+
+        //#region Jquery preventEventDefault
+        // $("#game").click(function(e){e.preventDefault();
+        //     var userCookie = C.getCookie("User Name");
+        //     if (userCookie == null || userCookie == "") {
+                
+        //         alert("you must login First");
+
+        //     } else {
+        //         alert("Welcome to the Games World ;D")
+        //     }
+        // })
+        //#endregion
+
+        document.getElementById("game").addEventListener("click", function (event){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+                event.preventDefault();
+                alert("you must login First");
+
+            } else {
+                alert("Welcome to the Games World ;D")
+            }
+        })
+    </script>
+
+</body>
+
+</html>

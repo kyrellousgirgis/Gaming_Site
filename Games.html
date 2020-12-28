@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" href="styles/gamePageStyle.css">
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="game-title">
+           Games 
+        </div>
+        <br><br>
+        <div id="pot-game" class="game-div">
+            <img  src="Assets/POT.jpg" width="350px" alt="">
+            <label style="position: absolute; bottom: 55%; left: 25%;">Pirates Of the Typean </label>
+
+        </div>
+        <div id="ninja-game" class="game-div">
+            <img  src="Assets/FruitNinja.jpeg" width="350px" height="200px" alt="">
+            <label style="position: absolute; bottom: 55%; left: 48%;">Ninja trtr</label>
+
+        </div>
+        <div id="Apples-game" class="game-div">
+            <img  src="Assets/Apples.jpeg" width="350px" height="200px" alt="">
+            <label style="position: absolute; bottom: 55%; left: 70%;">Apples</label>
+
+        </div>
+        <br><br><br><br><br><br>
+        <div id="hngman-game" class="game-div">
+            <img  src="Assets/hangman.jpeg" width="350px" height="200px" alt="">
+            <label style="position: absolute; bottom: 23%; left: 27%;">Hang-man</label>
+
+
+        </div>
+        <div id="tic-tac-game" class="game-div">
+            <img  src="Assets/TicTacToe.jpeg" width="350px" height="200px" alt="">
+            <label style="position: absolute; bottom: 23%; left: 48%;">Tic-Tac-Toe</label>
+        </div>
+        <div id="avengers-game" class="game-div">
+            <img  src="Assets/Avengers.jpg" width="350px" alt="">
+            <label style="position: absolute; bottom: 23%; left: 70%;">Apples</label>
+
+        </div>
+        <br><br><br><br><br><br>
+        <div id="flappy-game" class="game-div">
+            <img  src="Assets/flappy-bird.jpg" width="350px" height="200px" alt="">
+            <label style="position: absolute; bottom: -10%; left: 37%;">Flappy Bird</label>
+
+        </div>
+        <div id="mario-game" class="game-div">
+            <img  src="Assets/MarioWay.jpeg" width="350px" height="200px" alt="">
+            <label style="position: absolute; bottom: -10%; left: 58%;">Mario way</label>
+
+        </div>
+    </div>
+
+    <button class="bck-home">Back To Home</button>
+
+    <img id="coverPage" src="homePageImg.jpg" width="350px" alt="">
+
+
+
+    <script src="Scripts/jQ-Dev.js"></script>
+    <script src="Scripts/jquery-ui.js"></script>
+    <script src="Scripts/jquery-ui.min.js"></script>
+    <script src="Scripts/cookieLibrary.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                alert("Welcome to the Games World ;D")
+            }
+        })
+
+
+        $("#pot-game").click(function (){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+               // alert("Welcome to the POT Game ;D")
+                location.assign("pot/pot.html");
+            }
+            
+        })
+        $("#ninja-game").click(function (){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                //alert("Welcome to the Fruit Ninja Game ;D")
+                location.assign("Ninja trtr/main.html");
+            }
+            
+        })
+        $("#Apples-game").click(function (){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                //alert("Welcome to the Apples tree Game ;D")
+                location.assign("apples/index.html");
+            }
+        })
+        $("#hngman-game").click(function (){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                //alert("Welcome to the HangMan Game ;D")
+                location.assign("Hangman-Game/index.html");
+            }
+            
+        })
+        $("#tic-tac-game").click(function (){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                //alert("Welcome to the HangMan Game ;D")
+                location.assign("TicTacToe/home.html");
+            }
+        })
+        $("#avengers-game").click(function (){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                //alert("Welcome to the HangMan Game ;D")
+                location.assign("avengers/avengers.html");
+            }
+        })
+        $("#flappy-game").click(function(){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                //alert("Welcome to the HangMan Game ;D")
+                location.assign("flappy_bird/html/flappy_bird.html");
+            }
+        })
+        $("#mario-game").click(function(){
+            var userCookie = C.getCookie("User Name");
+            if (userCookie == null || userCookie == "") {
+
+               alert("you must login First");
+               location.assign("Home.html");
+
+            } else {
+                //alert("Welcome to the HangMan Game ;D")
+                location.assign("Mario/html/mario.html");
+            }
+            
+        })
+        $(".bck-home").click(function(){
+            location.assign("Home.html");
+        })
+
+    </script>
+</body>
+
+</html>

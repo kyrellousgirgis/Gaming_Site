@@ -168,7 +168,7 @@ $(function () {
   $("#fru").mousedown(function () {
     // flashh(); ??
 
-    if (document.getElementById("image").src.split("/")[4] == "boom.png") {
+    if (document.getElementById("image").src.split("/")[5] == "boom.png") {
       score--;
       var slice = new Audio("sound/boom.mp3");
      // $("#image").hide("explode", 500);

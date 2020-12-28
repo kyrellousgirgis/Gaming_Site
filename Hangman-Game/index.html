@@ -1,50 +1,64 @@
 <!DOCTYPE html>
-<html >
-    
+<html>
+
 <head>
-<link rel="stylesheet" href="hangman.css" type="text/css">
-     
-<title>Hangman</title>
+    <link rel="stylesheet" href="hangman.css" type="text/css">
+
+    <title>Hangman</title>
 </head>
-    
-    
+
+
 <body>
-   
+
     <p id="cate"><b>Choose Category:</b></p>
     <select id="category">
-       
-        <option value="proglang" >Programming Languages</option>
+
+        <option value="proglang">Programming Languages</option>
         <option value="animals">Animals</option>
         <option value="countries">Countries</option>
         <option value="sports">Sports</option>
         <option value="flowers">Flowers</option>
         <option value="pres">presidents</option>
     </select>
- 
-<div id="container2">
-    <div>
-    <h1 >Hangman</h1>
+
+    <div id="container2">
+        <div>
+            <h1>Hangman</h1>
             <img id="imgg" src="images/noose.png">
- 
-  <div id="guess" >Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span></div>
-  <div >
-    <img id='hangmanPic' src="./images/0.jpg" alt="">
-    <p id="guessword"></p>
-    <p id="wordSpotlight">The word to be guessed goes here</p>
-    <div id="keyboard"></div>
-    <button id="reset" onClick="reset()">Reset</button>
-  </div> 
-</div>
-    <audio controls id="h2O">
-    <source src="audio/djlang59_-_Drops_of_H2O_(_The_Filtered_Water_Treatment_).mp3" type="audio/mpeg">
-    </audio>
-    
-</div>
 
-  
+            <div id="guess">Wrong Guesses: <span id='mistakes'>0</span> of <span id='maxWrong'></span></div>
+            <div>
+                <img id='hangmanPic' src="./images/0.jpg" alt="">
+                <p id="guessword"></p>
+                <p id="wordSpotlight">The word to be guessed goes here</p>
+                <div id="keyboard"></div>
+                <button id="reset" onClick="reset()">Reset</button>
+            </div>
+        </div>
+        <audio controls id="h2O">
+            <source src="audio/djlang59_-_Drops_of_H2O_(_The_Filtered_Water_Treatment_).mp3" type="audio/mpeg">
+        </audio>
 
-   
-<script src='./js/hangman.js'></script>
-  
+    </div>
+
+
+
+
+    <script src='./js/hangman.js'></script>
+    <script>
+        // window.addEventListener("load", function () {
+        //     var userCookie = C.getCookie("User Name");
+        //     if (userCookie == null || userCookie == "") {
+
+        //        alert("you must login First");
+        //        location.assign("Home.html");
+
+        //     } else {
+        //         alert("Welcome to the Games World ;D")
+        //     }
+        // })
+    </script>
+
 </body>
+
 </html>

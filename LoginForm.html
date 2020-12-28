@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title> Login Page</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <form class="box" action="LoginForm.html">
+        <h1>Login</h1>
+        <input type="text" onfocus="userOnFocus()" onblur="userOnBlur()" id="userNameFeild" name="usrname" placeholder="Username">
+        <input type="password" onfocus="passwordOnFocus()" onblur="passwordOnBlur()" id="userPasswordFeild" name="usrpswd" placeholder="Password">
+        <input id="lgn-btn" type="button" name="" value="Login" onclick="onLogin()">
+
+    </form>
+    <img src="homePageImg.jpg" alt="">
+    <script src="Scripts/cookieLibrary.js"></script>
+    <script src="Scripts/Script.js"></script>
+    <script>
+        var lgnButton = document.getElementById("lgn-btn");
+
+        lgnButton.addEventListener("mouseover", function () {
+            lgnButton.style["background"] = "#2ecc71";
+        })
+        lgnButton.addEventListener("mouseout", function () {
+            lgnButton.style["background"] = "";
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

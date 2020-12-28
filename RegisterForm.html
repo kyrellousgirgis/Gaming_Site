@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title> Registeration Page</title>
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <form class="box" action="LoginForm.html" >
+            <h1>Register</h1>
+            <input type="text" onfocus="userOnFocus()" onblur="userOnBlur()" id="userNameFeild" name="usrname" placeholder="Username">
+            <input type="password" onfocus="passwordOnFocus()" onblur="passwordOnBlur()" id="userPasswordFeild" name="usrpswd" placeholder="Password">
+            <input type="password" onfocus="passwordConfOnFocus()" onblur="passwordConfOnBlur()" id="userPasswordConfirmFeild" name="usrpswdcnf" placeholder="Password Confirmation">
+            <input id="reg-btn" type="button" name="" value="Register" onclick="onRegister()">
+
+        </form>
+        <img src="homePageImg.jpg" alt="">  
+        <script src="Scripts/cookieLibrary.js"></script>
+        <script src="Scripts/Script.js"></script>
+
+        <script>
+            var regButton = document.getElementById("reg-btn");
+    
+            regButton.addEventListener("mouseover", function () {
+                regButton.style["background"] = "#2ecc71";
+            })
+            regButton.addEventListener("mouseout", function () {
+                regButton.style["background"] = "";
+            })
+    
+        </script>
+    </body>
+</html>

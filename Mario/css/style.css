@@ -1,0 +1,36 @@
+#car1{
+    position: absolute;
+    top: 72%;
+    left: 50%;
+}
+
+@font-face{
+    font-family:oldGame;
+    src:url("../fonts/OldSchoolAdventures-42j9.ttf");
+    font-weight:bolder;
+}
+
+#scoreLabel{
+    position: absolute;
+    top:10px;
+    left: 10px;
+}
+
+#score{
+    position: absolute;
+    top:10px;
+    left:200px;
+}
+
+label{
+    font-family: oldGame;
+    color: white;
+}
+div{
+    text-align: center;
+    margin-top: 20%;
+}
+#para{
+    font-family: oldGame;
+    color: white;
+}
