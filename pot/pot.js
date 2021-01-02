@@ -10,7 +10,7 @@ $("#pirate").click(
     }
 );
 
-var highScore;
+var highScore = 0;
 var newHighScore;
 if(cki.hasCookie("pothighscore")){
     highScore = cki.getCookie("pothighscore");
