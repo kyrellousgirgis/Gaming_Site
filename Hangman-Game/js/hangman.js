@@ -22,7 +22,7 @@ function randomWord() {
 
         if(selectedValue=="proglang"){
           answer = programming_languages[Math.floor(Math.random() * programming_languages.length)];
-            document.getElementById("guessword").innerHTML=str+"Programming lanuguage";
+            document.getElementById("guessword").innerHTML=str+"Programming Languages";
         }
     else if(selectedValue=="animals"){
          answer = animals[Math.floor(Math.random() * animals.length)];

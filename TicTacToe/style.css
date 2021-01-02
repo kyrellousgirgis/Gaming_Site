@@ -28,7 +28,7 @@ body{
 .score
 {
     position: absolute;
-    left: 1000px;
+    left: 70%;
     top:200px;
     /*background-color: whitesmoke;*/
     width:100px;

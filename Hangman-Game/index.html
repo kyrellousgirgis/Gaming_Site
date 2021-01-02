@@ -35,7 +35,7 @@
                 <button id="reset" onClick="reset()">Reset</button>
             </div>
         </div>
-        <audio controls id="h2O">
+        <audio controls id="h2O" style="display: none;">
             <source src="audio/djlang59_-_Drops_of_H2O_(_The_Filtered_Water_Treatment_).mp3" type="audio/mpeg">
         </audio>
 
@@ -57,6 +57,20 @@
         //         alert("Welcome to the Games World ;D")
         //     }
         // })
+
+        function PlayAudio(audioid, reset) {
+
+            if (reset == true) {
+                document.querySelector("#" + audioid).currentTime = 0;
+            }
+            document.querySelector("#" + audioid).play();
+        }
+
+        document.body.addEventListener("mouseover", function(){
+            debugger;
+            PlayAudio("h2O" ,false);
+        })
+
     </script>
 
 </body>

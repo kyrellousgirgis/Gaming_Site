@@ -41,7 +41,7 @@
         </div>
         <div id="avengers-game" class="game-div">
             <img  src="Assets/Avengers.jpg" width="350px" alt="">
-            <label style="position: absolute; bottom: 23%; left: 70%;">Apples</label>
+            <label style="position: absolute; bottom: 23%; left: 70%;">Avengers</label>
 
         </div>
         <br><br><br><br><br><br>
@@ -72,12 +72,11 @@
         window.addEventListener("load", function () {
             var userCookie = C.getCookie("User Name");
             if (userCookie == null || userCookie == "") {
-
-               alert("you must login First");
-               location.assign("Home.html");
+                location.assign("Home.html");
+               //alert("you must login First");
 
             } else {
-                alert("Welcome to the Games World ;D")
+                //alert("Welcome to the Games World ;D")
             }
         })
 

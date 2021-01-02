@@ -14,6 +14,7 @@ body{
     background: #191919;
     text-align: center;
     box-shadow: 20px 20px 20px;
+    border-radius: 51px 0px 51px 0px;
 }
 .box h1{
     color: white;

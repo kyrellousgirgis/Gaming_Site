@@ -76,7 +76,7 @@ function cellChoosed(clickedCell, clickedCellIndex) {
             playerCahnged();
             else{
             playerCahnged();
-            setTimeout(function(){   compTurn();},1500)}
+            setTimeout(function(){compTurn();},500)}
      }
      
 
